@@ -24,6 +24,96 @@
     <link rel="stylesheet" href="styles/components.css">
 </head>
 <body>
+    .nav-desktop-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #333;
+    padding: 10px 20px;
+    flex-wrap: wrap;
+}
+
+.nav-logo {
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.nav-toggle {
+    font-size: 26px;
+    color: white;
+    display: none;
+    cursor: pointer;
+}
+
+.nav-desktop {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    align-items: center;
+}
+
+.nav-link {
+    color: white;
+    text-decoration: none;
+    padding: 8px 12px;
+    transition: background 0.3s;
+}
+
+.nav-link:hover,
+.nav-link.active {
+    background: #555;
+    border-radius: 4px;
+}
+
+.nav-dropdown {
+    position: relative;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    top: 35px;
+    left: 0;
+    background: white;
+    padding: 10px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    border-radius: 4px;
+    z-index: 1000;
+}
+
+.dropdown-content a {
+    color: #333;
+    display: block;
+    padding: 5px 10px;
+    text-decoration: none;
+}
+
+.dropdown-content a:hover {
+    background-color: #f1f1f1;
+}
+
+.nav-dropdown:hover .dropdown-content {
+    display: block;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .nav-toggle {
+        display: block;
+    }
+    .nav-desktop {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        background: #333;
+        padding: 10px 0;
+    }
+    body.nav-open .nav-desktop {
+        display: flex;
+    }
+}
+
     <!-- Header -->
     <header id="header" class="header">
         <div class="container">
@@ -40,32 +130,32 @@
                 </a>
 
                 <!-- Desktop Navigation -->
-                <nav class="nav-desktop">
-                    <a href="#home" class="nav-link active">Home</a>
-                    <a href="#about" class="nav-link">About</a>
-                    <nav class="nav-desktop">
-                        <a href="#home" class="nav-link active">Home</a>
-                        <a href="#about" class="nav-link">About</a>
-                      
-                        <div class="nav-dropdown">
-                          <a href="#" class="nav-link">More</a>
-                          <div class="dropdown-content">
-                            <a href="daycaer.html">Daycare & Play</a>
-                            <a href="dry.html">Dry Fruits</a>
-                            <a href="other.html">General Services</a>
-                          </div>
-                        </div>
-                      
-                        <a href="#programs" class="nav-link">Programs</a>
-                        <a href="#gallery" class="nav-link">Gallery</a>
-                        <a href="#testimonials" class="nav-link">Testimonials</a>
-                        <a href="#contact" class="nav-link">Contact</a>
-                      </nav>
-                    <a href="#properties" class="nav-link">Properties</a>
-                    <a href="#tours" class="nav-link">Virtual Tours</a>
-                    <a href="#blog" class="nav-link">Blog</a>
-                    <a href="#contact" class="nav-link">Contact</a>
-                </nav>
+               <header>
+    <nav class="nav-desktop-container">
+        <div class="nav-logo">MySite</div>
+        <div class="nav-toggle" onclick="document.body.classList.toggle('nav-open')">&#9776;</div>
+        <div class="nav-desktop">
+            <a href="#home" class="nav-link active">Home</a>
+            <a href="#about" class="nav-link">About</a>
+            <div class="nav-dropdown">
+                <a href="#" class="nav-link">More</a>
+                <div class="dropdown-content">
+                    <a href="daycaer.html">Daycare & Play</a>
+                    <a href="dry.html">Dry Fruits</a>
+                    <a href="other.html">General Services</a>
+                </div>
+            </div>
+            <a href="#programs" class="nav-link">Programs</a>
+            <a href="#gallery" class="nav-link">Gallery</a>
+            <a href="#testimonials" class="nav-link">Testimonials</a>
+            <a href="#contact" class="nav-link">Contact</a>
+            <a href="#properties" class="nav-link">Properties</a>
+            <a href="#tours" class="nav-link">Virtual Tours</a>
+            <a href="#blog" class="nav-link">Blog</a>
+        </div>
+    </nav>
+</header>
+
 
                 <!-- Desktop CTA -->
                 <div class="header-cta">
